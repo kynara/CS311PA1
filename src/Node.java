@@ -1,5 +1,7 @@
 /**
+ * Project 1
  * Created by Maxwell Talley, Kynara Fernandes, and Garrett Greenfield
+ * for Com S 311 Spring 2019
  */
 
 /**
