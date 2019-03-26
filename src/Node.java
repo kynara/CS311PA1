@@ -8,6 +8,17 @@
  * Represents a node in the RBTree.
  */
 public class Node {
+    private Node parent;
+    private Node left;
+    private Node right;
+    private int key;
+    private int p;
+    private int val;
+    private int maxval;
+    private Endpoint ep;
+    private Endpoint emax;
+    private int color;
+
     /**
      * Constructor for a Node
      */
@@ -16,7 +27,7 @@ public class Node {
     }
 
     /**
-     * Get the parent of this Node
+     * Get the parent of the Node
      * @return parent Node
      */
     public Node getParent() {
@@ -24,7 +35,7 @@ public class Node {
     }
 
     /**
-     * Get the left child of this Node
+     * Get the left child of the Node
      * @return left child
      */
     public Node getLeft() {
@@ -32,7 +43,7 @@ public class Node {
     }
 
     /**
-     * Get the right child of this Node
+     * Get the right child of the Node
      * @return right child
      */
     public Node getRight() {
@@ -40,7 +51,7 @@ public class Node {
     }
 
     /**
-     * Get the key of this Node
+     * Get the key of the Node
      * @return key
      */
     public int getKey() {
@@ -48,7 +59,7 @@ public class Node {
     }
 
     /**
-     * Get the value of function p based on this endpoint
+     * Get the value of function p based on the endpoint
      * @return the value of p
      */
     public int getP() {
@@ -56,7 +67,7 @@ public class Node {
     }
 
     /**
-     * Get the val of this Node
+     * Get the val of the Node
      * @return val
      */
     public int getVal() {
@@ -64,7 +75,7 @@ public class Node {
     }
 
     /**
-     * Get the maxval of this Node
+     * Get the maxval of the Node
      * @return maxval
      */
     public int getMaxVal() {
@@ -72,8 +83,8 @@ public class Node {
     }
 
     /**
-     * Get the Endpoint that this Node represents
-     * @return this Endpoint
+     * Get the Endpoint that the Node represents
+     * @return this Node's Endpoint
      */
     public Endpoint getEndpoint() {
         return null;
