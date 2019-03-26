@@ -4,10 +4,12 @@
  * for Com S 311 Spring 2019
  */
 
-
+/**
+ * Represents an Endpoint in an Interval
+ */
 public class Endpoint {
     /**
-     * Value of this Endpoint
+     * Value of the Endpoint
      */
     private int value;
 
