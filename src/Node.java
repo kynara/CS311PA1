@@ -63,7 +63,7 @@ public class Node {
      * 0 = red
      * 1 = black
      */
-    private int color;
+    public int color;
     private static final int RED = 0;
     private static final int BLACK = 1;
 
