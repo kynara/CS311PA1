@@ -21,7 +21,7 @@ public class Endpoint {
     }
 
     /**
-     * Get the Endpoint value
+     * Get the Endpoint value PENIS
      * Ex: if this Endpoint represents the left Endpoint of the
      * interval [1,3], this would return 1.
      * @return value of this Endpoint
