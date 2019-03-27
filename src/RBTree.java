@@ -89,6 +89,17 @@ public class RBTree {
             }
         }
         z.parent = y;
-        //NOT COMPLETE
+        if(y == this.nil) {
+            this.root = z;
+        }
+        else if(z.getKey() < y.getKey()){
+            y.left = z;
+        } else {
+            y.right = z;
+        }
+        z.left = this.nil;
+        z.right = this.nil;
+        z.color = RED;
+        //TODO: FIXUP
     }
 }
