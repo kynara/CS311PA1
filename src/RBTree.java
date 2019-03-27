@@ -39,6 +39,7 @@ public class RBTree {
         height = 0;
         nil = new Node();
         root = nil;
+        root.parent = nil;
     }
 
     /**
@@ -76,6 +77,54 @@ public class RBTree {
         return height;
     }
 
+    /**
+     *
+     */
+    public void leftRotate(Node x) {
+        Node y = x.right;
+        x.right = y.left;
+        if(y.left != this.nil){
+            y.left.parent = x;
+        }
+        y.parent = x.parent;
+        if(x.parent == this.nil){
+            this.root = y;
+        }
+        else if(x == x.parent.left){
+            x.parent.left = y;
+        } else {
+            x.parent.right = y;
+        }
+        y.left = x;
+        x.parent = y;
+    }
+
+    /**
+     *
+     */
+    public void rightRotate(Node x) {
+        Node y = x.left;
+        x.left = y.right;
+        if(y.right != this.nil){
+            y.right.parent = x;
+        }
+        y.parent = x.parent;
+        if(x.parent == this.nil){
+            this.root = y;
+        }
+        else if(x == x.parent.right){
+            x.parent.right = y;
+        } else {
+            x.parent.left = y;
+        }
+        y.right = x;
+        x.parent = y;
+    }
+
+    /**
+     * Adds node to tree in correct position
+     * @param z Node to be added
+     */
     public void addNode(Node z) {
         size++;
         Node y = this.nil;
@@ -92,7 +141,7 @@ public class RBTree {
         if(y == this.nil) {
             this.root = z;
         }
-        else if(z.getKey() < y.getKey()){
+        else if(z.getKey() < y.getKey()) {
             y.left = z;
         } else {
             y.right = z;
@@ -100,6 +149,47 @@ public class RBTree {
         z.left = this.nil;
         z.right = this.nil;
         z.color = RED;
-        //TODO: FIXUP
+
+        //THIS IS THE FIX UP PART
+
+        while(z.parent.color == RED) {
+            if(z.parent == z.parent.parent.left) {
+                y = z.parent.parent.right;
+                if(y.color == RED) {
+                    z.parent.color = BLACK;
+                    y.color = BLACK;
+                    z.parent.parent.color = RED;
+                    z = z.parent.parent;
+                } else {
+                    if(z == z.parent.right) {
+                        z = z.parent;
+                        leftRotate(z);
+                    }
+                    z.parent.color = BLACK;
+                    z.parent.parent.color = RED;
+                    rightRotate(z.parent.parent);
+                }
+            } else {
+                //THE SAME ASS BEFORE WITH LEFT AND RIGHT EXCHANGED KILL ME NOW
+                y = z.parent.parent.left;
+                if(y.color == RED) {
+                    z.parent.color = BLACK;
+                    y.color = BLACK;
+                    z.parent.parent.color = RED;
+                    z = z.parent.parent;
+                } else {
+                    if(z == z.parent.left) {
+                        z = z.parent;
+                        rightRotate(z);
+                    }
+                    z.parent.color = BLACK;
+                    z.parent.parent.color = RED;
+                    leftRotate(z.parent.parent);
+                }
+            }
+        }
     }
+
+
+
 }
