@@ -32,7 +32,7 @@ public class Intervals {
      * @param b right Endpoint
      */
     public void intervalInsert(int a, int b) {
-
+        // TODO
     }
 
     /**
@@ -57,6 +57,7 @@ public class Intervals {
      * @return the value of the Endpoint with maximum overlap
      */
     public int findPOM() {
+        // TODO
         return -1;
     }
 
@@ -65,6 +66,6 @@ public class Intervals {
      * @return the RBTree being used for these Intervals
      */
     public RBTree getRBTree() {
-        return null;
+        return this.T;
     }
 }
