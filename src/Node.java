@@ -80,7 +80,7 @@ public class Node {
         this.maxval = 0;
         this.ep = ep;
         this.emax = null; // TODO
-        this.color = BLACK;
+        this.color = RED;
     }
 
     /**

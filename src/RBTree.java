@@ -80,6 +80,28 @@ public class RBTree {
     /**
      *
      */
+    public void breadthFirstTraversal()
+    {
+        breadthFirstTraversalRec(root);
+        System.out.println();
+    }
+
+    /**
+     *
+     * @param x
+     */
+    public void breadthFirstTraversalRec(Node x){
+        if(x != this.nil) {
+            breadthFirstTraversalRec(x.left);
+            System.out.print(x.getKey() + "\t");
+            breadthFirstTraversalRec(x.right);
+        }
+    }
+
+    /**
+     *
+     * @param x
+     */
     public void leftRotate(Node x) {
         Node y = x.right;
         x.right = y.left;
@@ -101,6 +123,7 @@ public class RBTree {
 
     /**
      *
+     * @param x
      */
     public void rightRotate(Node x) {
         Node y = x.left;
@@ -189,7 +212,4 @@ public class RBTree {
             }
         }
     }
-
-
-
 }
