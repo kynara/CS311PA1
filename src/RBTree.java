@@ -171,6 +171,21 @@ public class RBTree {
                 }
             } else {
                 //THE SAME ASS BEFORE WITH LEFT AND RIGHT EXCHANGED KILL ME NOW
+                y = z.parent.parent.left;
+                if(y.color == RED) {
+                    z.parent.color = BLACK;
+                    y.color = BLACK;
+                    z.parent.parent.color = RED;
+                    z = z.parent.parent;
+                } else {
+                    if(z == z.parent.left) {
+                        z = z.parent;
+                        rightRotate(z);
+                    }
+                    z.parent.color = BLACK;
+                    z.parent.parent.color = RED;
+                    leftRotate(z.parent.parent);
+                }
             }
         }
     }
