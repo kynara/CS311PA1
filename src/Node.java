@@ -11,17 +11,17 @@ public class Node {
     /**
      * Parent of the given Node
      */
-    private Node parent;
+    public Node parent;
 
     /**
      * Left child of the given Node
      */
-    private Node left;
+    public Node left;
 
     /**
      * Right child of the given Node
      */
-    private Node right;
+    public Node right;
 
     /**
      * Unique integer used as the Node's key.
@@ -32,19 +32,19 @@ public class Node {
     /**
      *
      */
-    private int p;
+    public int p;
 
     /**
      * Sum of p-values in the Node's subtree,
      * including itself
      */
-    private int val;
+    public int val;
 
     /**
      * Maximum 'val' in the Node's subtree,
      * including itself
      */
-    private int maxval;
+    public int maxval;
 
     /**
      * The Endpoint associated with the given
@@ -55,7 +55,7 @@ public class Node {
     /**
      * The Endpoint with the maximum overlap
      */
-    private Endpoint emax;
+    public Endpoint emax;
 
     /**
      * The color of the Node.
@@ -80,7 +80,23 @@ public class Node {
         this.maxval = 0;
         this.ep = ep;
         this.emax = null; // TODO
-        this.color = 0; // TODO
+        this.color = BLACK;
+    }
+
+    /**
+     * Constructor for nil node
+     */
+    public Node() {
+        this.parent = null;
+        this.left = null;
+        this.right = null;
+        this.key = -1;
+        this.p = 0;
+        this.val = -1;
+        this.maxval = 0;
+        this.ep = null;
+        this.emax = null;
+        this.color = BLACK;
     }
 
     /**

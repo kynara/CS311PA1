@@ -24,10 +24,21 @@ public class RBTree {
     private int height;
 
     /**
+     * T.nil of the RBTree. The RBTree must have exactly one instance of nil
+     */
+    private Node nil;
+
+    private static final int RED = 0;
+    private static final int BLACK = 1;
+
+    /**
      * Constructor for RBTree
      */
     public RBTree() {
-
+        size = 0;
+        height = 0;
+        nil = new Node();
+        root = nil;
     }
 
     /**
@@ -54,7 +65,7 @@ public class RBTree {
      * @return size of the RBTree
      */
     public int getSize() {
-        return -1;
+        return size;
     }
 
     /**
@@ -62,6 +73,22 @@ public class RBTree {
      * @return the height of the RBTree
      */
     public int getHeight() {
-        return -1;
+        return height;
+    }
+
+    public void addNode(Node z) {
+        size++;
+        Node y = this.nil;
+        Node x = this.root;
+        while(x != this.nil) {
+            y = x;
+            if(z.getKey() < x.getKey()) {
+                x = x.left;
+            } else {
+                x = x.right;
+            }
+        }
+        z.parent = y;
+        //NOT COMPLETE
     }
 }
