@@ -31,6 +31,8 @@ public class RBTree {
     private static final int RED = 0;
     private static final int BLACK = 1;
 
+    public String rbtString;
+
     /**
      * Constructor for RBTree
      */
@@ -80,20 +82,23 @@ public class RBTree {
     /**
      *
      */
-    public void breadthFirstTraversal()
+    public String breadthFirstTraversal()
     {
+        rbtString = "";
         breadthFirstTraversalRec(root);
         System.out.println();
+        return rbtString;
     }
 
     /**
      *
      * @param x
      */
-    public void breadthFirstTraversalRec(Node x){
+    public void breadthFirstTraversalRec(Node x) {
         if(x != this.nil) {
             breadthFirstTraversalRec(x.left);
             System.out.print(x.getKey() + "\t");
+            rbtString += x.getKey() + " ";
             breadthFirstTraversalRec(x.right);
         }
     }
@@ -105,9 +110,9 @@ public class RBTree {
     public void leftRotate(Node x) {
         Node y = x.right;
         x.right = y.left;
-        if(y.left != this.nil){
+        if(y.left != this.nil) {
             y.left.parent = x;
-        }
+    }
         y.parent = x.parent;
         if(x.parent == this.nil){
             this.root = y;
@@ -211,5 +216,6 @@ public class RBTree {
                 }
             }
         }
+        this.root.color = BLACK;
     }
 }
