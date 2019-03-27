@@ -33,8 +33,8 @@ public class Interval {
 
     public Interval(int leftEp, int rightEp) {
         intervalID = count.incrementAndGet();
-        this.leftEp = new Endpoint(leftEp);
-        this.rightEp = new Endpoint(rightEp);
+        this.leftEp = new Endpoint(leftEp, 1);
+        this.rightEp = new Endpoint(rightEp, -1 );
     }
 
     public Endpoint getLeftEp() {

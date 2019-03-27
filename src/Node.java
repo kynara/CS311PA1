@@ -75,7 +75,7 @@ public class Node {
         this.left = null;
         this.right = null;
         this.key = ep.getValue();
-        this.p = 0; // TODO
+        this.p = ep.getType(); // TODO
         this.val = 0; // TODO
         this.maxval = 0;
         this.ep = ep;

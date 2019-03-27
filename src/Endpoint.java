@@ -20,14 +20,15 @@ public class Endpoint {
      */
     private int type;
 
-    private static final int START = 0;
+    private static final int START = -1;
     private static final int END = 1;
 
     /**
      * Constructor for Endpoint
      */
-    public Endpoint(int value) {
+    public Endpoint(int value, int type) {
         this.value = value;
+        this.type = type;
     }
 
     /**
