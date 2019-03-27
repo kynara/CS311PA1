@@ -4,18 +4,10 @@
  * for Com S 311 Spring 2019
  */
 
-import java.util.concurrent.atomic.AtomicInteger;
-
 /**
  * Represents an Endpoint in an Interval
  */
 public class Endpoint {
-    /**
-     * Total count of Endpoints that have been initialized.
-     * Used to compute the Endpoint's value.
-     */
-    private static final AtomicInteger count = new AtomicInteger(0);
-
     /**
      * Value of the Endpoint
      */
@@ -24,8 +16,8 @@ public class Endpoint {
     /**
      * Constructor for Endpoint
      */
-    public Endpoint() {
-        this.value = count.incrementAndGet();
+    public Endpoint(int value) {
+        this.value = value;
     }
 
     /**
