@@ -14,7 +14,7 @@ public class Intervals {
      * Constructor for a collection of Intervals
      */
     public Intervals() {
-
+        // TODO, figure out what data structure to use for this
     }
 
     /**
@@ -32,6 +32,7 @@ public class Intervals {
      * @param b right Endpoint
      */
     public void intervalInsert(int a, int b) {
+        Interval newInterval = new Interval(a, b);
         // TODO
     }
 
@@ -46,6 +47,7 @@ public class Intervals {
      * @return true if successful, false otherwise.
      */
     public boolean intervalDelete(int intervalID) {
+        // TODO for extra credit
         return false;
     }
 
@@ -57,8 +59,8 @@ public class Intervals {
      * @return the value of the Endpoint with maximum overlap
      */
     public int findPOM() {
-        // TODO
-        return -1;
+        // TODO, double check this
+        return getRBTree().getRoot().emax.getValue();
     }
 
     /**
