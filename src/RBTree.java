@@ -274,7 +274,58 @@ public class RBTree {
         }
         if(yOriginalColor == BLACK) {
             //FIX UP CODE
-
+            Node w;
+            while(x != this.root && x.color == BLACK) {
+                if(x == x.parent.left) {
+                    w = x.parent.right;
+                    if(w.color == RED) {
+                        w.color = BLACK;
+                        x.parent.color = RED;
+                        leftRotate(x.parent);
+                        w = x.parent.right;
+                    }
+                    if(w.left.color == BLACK && w.right.color == BLACK) {
+                        w.color = RED;
+                        x = x.parent;
+                    }
+                    else if(w.right.color == BLACK){
+                        w.left.color = BLACK;
+                        w.color = RED;
+                        rightRotate(w);
+                        w = x.parent.right;
+                    }
+                    w.color = x.parent.color;
+                    x.parent.color = BLACK;
+                    w.right.color = BLACK;
+                    leftRotate(x.parent);
+                    x = this.root;
+                }
+                else{
+                    w = x.parent.left;
+                    if(w.color == RED) {
+                        w.color = BLACK;
+                        x.parent.color = RED;
+                        rightRotate(x.parent);
+                        w = x.parent.left;
+                    }
+                    if(w.right.color == BLACK && w.left.color == BLACK) {
+                        w.color = RED;
+                        x = x.parent;
+                    }
+                    else if(w.left.color == BLACK){
+                        w.right.color = BLACK;
+                        w.color = RED;
+                        leftRotate(w);
+                        w = x.parent.left;
+                    }
+                    w.color = x.parent.color;
+                    x.parent.color = BLACK;
+                    w.left.color = BLACK;
+                    rightRotate(x.parent);
+                    x = this.root;
+                }
+            }
+            x.color = BLACK;
         }
     }
 }

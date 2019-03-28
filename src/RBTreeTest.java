@@ -41,6 +41,18 @@ class RBTreeTest {
     }
 
     @Test
+    void deleteNodeWorks(){
+        tree = new RBTree();
+        Node n = new Node();
+        for(int i = 0; i < 8; i++) {
+            n = new Node(endpoints[i]);
+            tree.addNode(n);
+        }
+        tree.deleteNode(n);
+        assertEquals("0 1 3 4 6 7 9 ", tree.breadthFirstTraversal(), "RBT does not match expected");
+    }
+
+    @Test
     void getNILNode() {
     }
 
