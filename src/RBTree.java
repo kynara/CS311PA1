@@ -328,4 +328,8 @@ public class RBTree {
             x.color = BLACK;
         }
     }
+
+    // Depth first search -- used to find maxval
+        // take in a Node and change the Node's emax and maxval
+        // will change emax and maxval
 }

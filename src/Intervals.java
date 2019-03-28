@@ -15,6 +15,8 @@ public class Intervals {
      */
     public Intervals() {
         // TODO, figure out what data structure to use for this
+        // The answer was RBTree, duh
+        T = new RBTree();
     }
 
     /**
@@ -32,8 +34,11 @@ public class Intervals {
      * @param b right Endpoint
      */
     public void intervalInsert(int a, int b) {
-        Interval newInterval = new Interval(a, b);
         // TODO
+        Endpoint left = new Endpoint(a, );
+        Endpoint right = new Endpoint(b);
+        T.addNode();
+        // find maxval now
     }
 
     /**
