@@ -44,7 +44,7 @@ public class Node {
      * Maximum 'val' in the Node's subtree,
      * including itself
      */
-    public int maxval;
+    private int maxval;
 
     /**
      * The Endpoint associated with the given
