@@ -75,7 +75,7 @@ public class Node {
         this.left = null;
         this.right = null;
         this.key = ep.getValue();
-        this.p = ep.getType(); // TODO
+        this.p = ep.getType();
         this.val = 0; // TODO
         this.maxval = 0;
         this.ep = ep;
@@ -92,7 +92,7 @@ public class Node {
         this.right = null;
         this.key = -1;
         this.p = 0;
-        this.val = -1;
+        this.val = 0;
         this.maxval = 0;
         this.ep = null;
         this.emax = null;
@@ -152,7 +152,11 @@ public class Node {
      * @return maxval
      */
     public int getMaxVal() {
-        return this.maxval;
+        if(this.val == 0)
+            return 0;
+        maxval = Math.max(this.left.getMaxVal(), this.left.val + this.p);
+        maxval = Math.max(maxval, this.left.val + this.p + this.right.getMaxVal());
+        return maxval;
     }
 
     /**

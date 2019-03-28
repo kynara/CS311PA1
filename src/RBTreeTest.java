@@ -27,11 +27,7 @@ class RBTreeTest {
     }
 
     @Test
-    void getRoot() {
-    }
-
-    @Test
-    void addNodeWorks(){
+    void addNodeWorks() {
         tree = new RBTree();
         for(int i = 0; i < 8; i++) {
             Node n = new Node(endpoints[i]);
@@ -41,7 +37,7 @@ class RBTreeTest {
     }
 
     @Test
-    void deleteNodeWorks(){
+    void deleteNodeWorks() {
         tree = new RBTree();
         Node n = new Node();
         for(int i = 0; i < 8; i++) {
