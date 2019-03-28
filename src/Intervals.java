@@ -4,17 +4,25 @@
  * for Com S 311 Spring 2019
  */
 
+import java.util.*;
+
 /**
  * Represents a collection of Intervals
  */
 public class Intervals {
     private RBTree T;
 
+    private static final int START = 1;
+    private static final int END = -1;
+
+    Map<Integer, Interval> intervals;
+
     /**
      * Constructor for a collection of Intervals
      */
     public Intervals() {
-        // TODO, figure out what data structure to use for this
+        T = new RBTree();
+        intervals = new HashMap<>();
     }
 
     /**
@@ -33,7 +41,10 @@ public class Intervals {
      */
     public void intervalInsert(int a, int b) {
         Interval newInterval = new Interval(a, b);
-        // TODO
+
+        T.addNode(newInterval.getLeftEp());
+        T.addNode(newInterval.getRightEp());
+        intervals.put(newInterval.getIntervalID(), newInterval);
     }
 
     /**
@@ -47,7 +58,9 @@ public class Intervals {
      * @return true if successful, false otherwise.
      */
     public boolean intervalDelete(int intervalID) {
-        // TODO for extra credit
+        Interval intervalToDelete = intervals.get(intervalID);
+        T.deleteNode(intervalToDelete.getLeftEp());
+        T.deleteNode(intervalToDelete.getRightEp());
         return false;
     }
 

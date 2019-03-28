@@ -16,15 +16,20 @@ public class Interval {
      */
     private static final AtomicInteger count = new AtomicInteger(0);
 
+
+    private static final int START = 1;
+    private static final int END = -1;
+
+
     /**
      * The left endpoint in the Interval.
      */
-    private Endpoint leftEp;
+    private Node leftEp;
 
     /**
      * The right endpoint in the Interval.
      */
-    private Endpoint rightEp;
+    private Node rightEp;
 
     /**
      * The unique ID of the Interval.
@@ -33,15 +38,15 @@ public class Interval {
 
     public Interval(int leftEp, int rightEp) {
         intervalID = count.incrementAndGet();
-        this.leftEp = new Endpoint(leftEp, 1);
-        this.rightEp = new Endpoint(rightEp, -1 );
+        this.leftEp = new Node(new Endpoint(leftEp, START));
+        this.rightEp = new Node(new Endpoint(rightEp, END));
     }
 
-    public Endpoint getLeftEp() {
+    public Node getLeftEp() {
         return this.leftEp;
     }
 
-    public Endpoint getRightEp() {
+    public Node getRightEp() {
         return this.rightEp;
     }
 
