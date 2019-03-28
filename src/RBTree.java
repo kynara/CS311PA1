@@ -80,7 +80,8 @@ public class RBTree {
     }
 
     /**
-     *
+     * Iterates through the tree breadth wise
+     * @return RBT in string form
      */
     public String breadthFirstTraversal()
     {
@@ -91,8 +92,8 @@ public class RBTree {
     }
 
     /**
-     *
-     * @param x
+     * Recursively iterates through a subtree
+     * @param x Subtree to which the method iterates
      */
     public void breadthFirstTraversalRec(Node x) {
         if(x != this.nil) {
@@ -231,6 +232,11 @@ public class RBTree {
         v.parent = u.parent;
     }
 
+    /**
+     * Finds the minimum value of subtree
+     * @param x
+     * @return Minimum value of subtree x
+     */
     public Node rbtMinimum(Node x){
         while(x.left != this.nil){
             x = x.left;
@@ -238,6 +244,11 @@ public class RBTree {
         return x;
     }
 
+    /**
+     * Finds the maximum value of subtree
+     * @param x
+     * @return Maximum value of subtree x
+     */
     public Node rbtMaximum(Node x){
         while(x.right != this.nil){
             x = x.right;
@@ -245,6 +256,10 @@ public class RBTree {
         return x;
     }
 
+    /**
+     * Deletes node from tree
+     * @param z Node to be deleted
+     */
     public void deleteNode(Node z) {
         Node y = z;
         Node x;
