@@ -20,8 +20,14 @@ public class Endpoint {
      */
     private int type;
 
-    private static final int START = 1;
-    private static final int END = -1;
+    /**
+     * ID of the interval the Endpoint is in.
+     * Shares this ID with another Endpoint.
+     */
+    private int intervalID;
+
+    private static final int START = -1;
+    private static final int END = 1;
 
     /**
      * Constructor for Endpoint
