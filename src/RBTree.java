@@ -31,7 +31,7 @@ public class RBTree {
     private static final int RED = 0;
     private static final int BLACK = 1;
 
-    public String rbtString;
+    private String rbtString;
 
     /**
      * Constructor for RBTree
@@ -217,5 +217,64 @@ public class RBTree {
             }
         }
         this.root.color = BLACK;
+    }
+
+    public void rbtTransplant(Node u, Node v){
+        if (u.parent == this.nil) {
+            this.root = v;
+        }
+        else if (u == u.parent.left) {
+            u.parent.left = v;
+        } else {
+            u.parent.right = v;
+        }
+        v.parent = u.parent;
+    }
+
+    public Node rbtMinimum(Node x){
+        while(x.left != this.nil){
+            x = x.left;
+        }
+        return x;
+    }
+
+    public Node rbtMaximum(Node x){
+        while(x.right != this.nil){
+            x = x.right;
+        }
+        return x;
+    }
+
+    public void deleteNode(Node z) {
+        Node y = z;
+        Node x;
+        int yOriginalColor = y.color;
+        if(z.left == this.nil){
+            x = z.right;
+            rbtTransplant(z, z.right);
+        }
+        else if(z.right == this.nil){
+            x = z.left;
+            rbtTransplant(z, z.left);
+        } else {
+            y = rbtMinimum(z.right);
+            yOriginalColor = y.color;
+            x = y.right;
+            if(y.parent == z){
+                x.parent = y;
+            } else {
+                rbtTransplant(y, y.right);
+                y.right = z.right;
+                y.right.parent = y;
+            }
+            rbtTransplant(z, y);
+            y.left = z.left;
+            y.left.parent = y;
+            y.color = z.color;
+        }
+        if(yOriginalColor == BLACK) {
+            //FIX UP CODE
+
+        }
     }
 }

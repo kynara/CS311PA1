@@ -20,8 +20,8 @@ public class Endpoint {
      */
     private int type;
 
-    private static final int START = -1;
-    private static final int END = 1;
+    private static final int START = 1;
+    private static final int END = -1;
 
     /**
      * Constructor for Endpoint

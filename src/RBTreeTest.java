@@ -6,17 +6,20 @@ class RBTreeTest {
     private RBTree tree;
     private Endpoint[] endpoints;
 
+    private static final int START = 1;
+    private static final int END = -1;
+
     @BeforeEach
     void setUp() {
         endpoints = new Endpoint[8];
-        endpoints[0] = new Endpoint(0);
-        endpoints[1] = new Endpoint(1);
-        endpoints[2] = new Endpoint(3);
-        endpoints[3] = new Endpoint(4);
-        endpoints[4] = new Endpoint(6);
-        endpoints[5] = new Endpoint(7);
-        endpoints[6] = new Endpoint(9);
-        endpoints[7] = new Endpoint(11);
+        endpoints[0] = new Endpoint(0, START);
+        endpoints[1] = new Endpoint(1, START);
+        endpoints[2] = new Endpoint(3, START);
+        endpoints[3] = new Endpoint(4, END);
+        endpoints[4] = new Endpoint(6, END);
+        endpoints[5] = new Endpoint(7, START);
+        endpoints[6] = new Endpoint(9, END);
+        endpoints[7] = new Endpoint(11, END);
     }
 
     @AfterEach
