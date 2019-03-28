@@ -60,7 +60,7 @@ public class RBTree {
      * @return the nil Node
      */
     public Node getNILNode() {
-        return null;
+        return this.nil;
     }
 
     /**
