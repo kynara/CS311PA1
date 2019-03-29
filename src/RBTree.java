@@ -218,9 +218,11 @@ public class RBTree {
             }
         }
         this.root.color = BLACK;
+
+        z.findVal(this);
     }
 
-    public void rbtTransplant(Node u, Node v){
+     public void rbtTransplant(Node u, Node v){
         if (u.parent == this.nil) {
             this.root = v;
         }
@@ -342,9 +344,9 @@ public class RBTree {
             }
             x.color = BLACK;
         }
+
+        z.findVal(this);
     }
 
-    // Depth first search -- used to find maxval
-        // take in a Node and change the Node's emax and maxval
-        // will change emax and maxval
+
 }
