@@ -15,7 +15,7 @@ public class Intervals {
     private static final int START = 1;
     private static final int END = -1;
 
-    Map<Integer, Interval> intervals;
+    private Map<Integer, Interval> intervals;
 
     /**
      * Constructor for a collection of Intervals
@@ -72,7 +72,6 @@ public class Intervals {
      * @return the value of the Endpoint with maximum overlap
      */
     public int findPOM() {
-        // TODO, double check this
         return getRBTree().getRoot().emax.getValue();
     }
 
@@ -97,6 +96,6 @@ public class Intervals {
             //System.out.println("Inserting: "+ Arrays.toString(points[i]));
             intv.intervalInsert(points[i][0], points[i][1]);
         }
-        System.out.println("POM is: "+ intv.findPOM()); //Should return 3.
+//        System.out.println("POM is: "+ intv.findPOM()); //Should return 3.
     }
 }
