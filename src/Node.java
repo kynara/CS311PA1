@@ -60,8 +60,8 @@ public class Node {
     /**
      * The color of the Node.
      * Either red or black, denoted as
-     * 0 = red
-     * 1 = black
+     * 0 = RED
+     * 1 = BLACK
      */
     public int color;
     private static final int RED = 0;
@@ -145,6 +145,22 @@ public class Node {
      */
     public int getVal() {
         return this.val;
+    }
+
+    public void findVal(RBTree T) {
+        findValRec(T, T.getRoot());
+    }
+
+    private void findValRec(RBTree T, Node node) {
+        if(node != T.getNILNode()) {
+            findValRec(T, node.left);
+            findValRec(T, node.right);
+            node.val = node.left.val + node.p + node.right.val;
+        }
+
+        else {
+            node.val = 0;
+        }
     }
 
     /**
