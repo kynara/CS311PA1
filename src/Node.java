@@ -76,7 +76,7 @@ public class Node {
         this.right = null;
         this.key = ep.getValue();
         this.p = ep.getType();
-        this.val = 0; // TODO
+        this.val = 0;
         this.maxval = 0;
         this.ep = ep;
         this.emax = null; // TODO
@@ -147,10 +147,19 @@ public class Node {
         return this.val;
     }
 
+    /**
+     * Computes val by calling the recursive function
+     * @param T RBTree whose Nodes we're computing val for
+     */
     public void findVal(RBTree T) {
         findValRec(T, T.getRoot());
     }
 
+    /**
+     * Recursive function to find the val of each node
+     * @param T RBTree instance
+     * @param node Node to find val of
+     */
     private void findValRec(RBTree T, Node node) {
         if(node != T.getNILNode()) {
             findValRec(T, node.left);
@@ -168,11 +177,37 @@ public class Node {
      * @return maxval
      */
     public int getMaxVal() {
-        if(this.val == 0)
-            return 0;
-        maxval = Math.max(this.left.getMaxVal(), this.left.val + this.p);
-        maxval = Math.max(maxval, this.left.val + this.p + this.right.getMaxVal());
         return maxval;
+    }
+
+    /**
+     * Compute and return the maxval for each Node in the subtree
+     * @return maxval
+     */
+    public int findMaxVal(RBTree T) {
+        if(this == T.getNILNode())
+            return 0;
+
+        maxval = Math.max(this.left.findMaxVal(T), this.left.val + this.p);
+        maxval = Math.max(maxval, this.left.val + this.p + this.right.findMaxVal(T));
+
+        setMaxValOnSubtree(T, this, maxval);
+
+        return maxval;
+    }
+
+    /**
+     * After computing the maxval, assign it to every node
+     * @param T RBTree the Node is in
+     * @param node Node to set maxval on
+     * @param maxval the maxval we're setting on the Node
+     */
+    private void setMaxValOnSubtree(RBTree T, Node node, int maxval) {
+        if(node != T.getNILNode()) {
+            setMaxValOnSubtree(T, node.getLeft(), maxval);
+            setMaxValOnSubtree(T, node.getRight(), maxval);
+            node.maxval = maxval;
+        }
     }
 
     /**

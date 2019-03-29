@@ -11,6 +11,8 @@ class NodeTest {
 
     private static final int START = 1;
     private static final int END = -1;
+    private static final int RED = 0;
+    private static final int BLACK = 1;
 
     @BeforeEach
     void setUp() {
@@ -81,8 +83,28 @@ class NodeTest {
     }
 
     @Test
-    void getMaxVal() {
+    void getMaxvalAfterMultipleAdd() {
+        addMultipleNodes(T);
 
+        assertEquals(3, T.getRoot().getMaxVal(), "Root maxval is not correct after add");
+    }
+
+    @Test
+    void getMaxvalOfChildSameAsRoot() {
+        addMultipleNodes(T);
+
+        System.out.println(T.getRoot().getMaxVal());
+
+        assertEquals(T.getRoot().getMaxVal(), T.getRoot().getLeft().getMaxVal(), "Left child maxval was not the same as root");
+        assertEquals(T.getRoot().getMaxVal(), T.getRoot().getRight().getMaxVal(), "Right child maxval was not the same as root");
+    }
+
+    @Test
+    void getMaxValAfterDeleteRoot() {
+        addMultipleNodes(T);
+        T.deleteNode(T.getRoot());
+
+        assertEquals(3, T.getRoot().getMaxVal(), "Root maxval is not correct after delete");
     }
 
     @Test
@@ -94,7 +116,9 @@ class NodeTest {
     }
 
     @Test
-    void getColor() {
+    void getRootColorAfterMultipleAdd() {
+        addMultipleNodes(T);
+        assertEquals(BLACK, T.getRoot().getColor(), "Root color is not correct");
     }
 
     private void addMultipleNodes(RBTree T) {

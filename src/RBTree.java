@@ -220,6 +220,7 @@ public class RBTree {
         this.root.color = BLACK;
 
         z.findVal(this);
+        root.findMaxVal(this);
     }
 
      public void rbtTransplant(Node u, Node v){
@@ -346,6 +347,7 @@ public class RBTree {
         }
 
         z.findVal(this);
+        root.findMaxVal(this);
     }
 
 
