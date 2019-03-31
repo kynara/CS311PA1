@@ -34,10 +34,33 @@ class RBTreeTest {
             Node n = new Node(endpoints[i]);
             tree.addNode(n);
         }
-        assertEquals("0 1 3 4 6 7 9 11 ", tree.breadthFirstTraversal(), "RBT does not match expected");
+        assertEquals("0 1 3 4 6 7 9 11 ", tree.breadthFirstTraversal(), "RBT does not add right 1");
     }
 
-    @Test
+    @Test //adds the nodes in a random order still organizes it into the same BST
+    void addNodeRandom() {
+        tree = new RBTree();
+        Node n = new Node(endpoints[3]);
+        tree.addNode(n);
+        n = new Node(endpoints[1]);
+        tree.addNode(n);
+        n = new Node(endpoints[0]);
+        tree.addNode(n);
+        n = new Node(endpoints[2]);
+        tree.addNode(n);
+        n = new Node(endpoints[4]);
+        tree.addNode(n);
+        n = new Node(endpoints[7]);
+        tree.addNode(n);
+        n = new Node(endpoints[6]);
+        tree.addNode(n);
+        n = new Node(endpoints[5]);
+        tree.addNode(n);
+
+        assertEquals("0 1 3 4 6 7 9 11 ", tree.breadthFirstTraversal(), "RBT does not add right");
+    }
+
+    @Test //deletes the last node added
     void deleteNodeWorks() {
         Node n = new Node();
         for(int i = 0; i < 8; i++) {
@@ -45,19 +68,54 @@ class RBTreeTest {
             tree.addNode(n);
         }
         tree.deleteNode(n);
-        assertEquals("0 1 3 4 6 7 9 ", tree.breadthFirstTraversal(), "RBT does not match expected");
+        assertEquals("0 1 3 4 6 7 9 ", tree.breadthFirstTraversal(), "RBT does not delete right");
+    }
+
+    @Test //deletes node at the first location
+    void deleteNodeOne() {
+        tree = new RBTree();
+        Node[] n = new Node[8];
+        for(int i = 0; i < 8; i++) {
+            n[i] = new Node(endpoints[i]);
+            tree.addNode(n[i]);
+        }
+
+        tree.deleteNode(n[0]);
+        assertEquals("1 3 4 6 7 9 11 ", tree.breadthFirstTraversal(), "RBT does not delete right");
+    }
+
+    @Test
+    void deleteNodeOnEmpty() {
+        tree = new RBTree();
+        Node n = new Node();
+        tree.deleteNode(n);
+
+        assertEquals("null", tree.breadthFirstTraversal(), "RBT does not match expected");
     }
 
     @Test
     void getNILNode() {
+        assertEquals("11", tree.getNILNode(), "RBT does not match expected");
     }
 
     @Test
     void getSize() {
+        tree = new RBTree();
+        for(int i = 0; i < 8; i++) {
+            Node n = new Node(endpoints[i]);
+            tree.addNode(n);
+        }
+        assertEquals(8, tree.getSize(), "RBT does not match expected");
     }
 
     @Test
     void getHeight() {
+        tree = new RBTree();
+        for(int i = 0; i < 8; i++) {
+            Node n = new Node(endpoints[i]);
+            tree.addNode(n);
+        }
+        assertEquals(4, tree.getHeight(), "RBT does not match expected");
     }
 
     @Test
@@ -75,6 +133,7 @@ class RBTreeTest {
 
     @Test
     void addNode() {
+
     }
 
     private void addMultipleNodes(RBTree T) {
