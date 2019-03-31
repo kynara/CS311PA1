@@ -264,6 +264,8 @@ public class RBTree {
      * @param z Node to be deleted
      */
     public void deleteNode(Node z) {
+        if(this.root == this.nil) return;
+        
         Node y = z;
         Node x;
         int yOriginalColor = y.color;
