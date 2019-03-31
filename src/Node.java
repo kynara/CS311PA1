@@ -188,8 +188,17 @@ public class Node {
         if(this == T.getNILNode())
             return 0;
 
-        maxval = Math.max(this.left.findMaxVal(T), this.left.val + this.p);
-        maxval = Math.max(maxval, this.left.val + this.p + this.right.findMaxVal(T));
+        int leftMaxVal = this.left.findMaxVal(T);
+        int rightMaxVal = this.right.findMaxVal(T);
+
+        maxval = Math.max(leftMaxVal, this.left.val + this.p);
+        maxval = Math.max(maxval, this.left.val + this.p + rightMaxVal);
+
+        if(maxval > leftMaxVal || maxval > rightMaxVal) {
+            this.emax = this.right.ep;
+        } else {
+            this.emax = this.ep;
+        }
 
         setMaxValOnSubtree(T, this, maxval);
 
