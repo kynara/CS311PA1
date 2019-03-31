@@ -11,6 +11,8 @@ class RBTreeTest {
 
     @BeforeEach
     void setUp() {
+        tree = new RBTree();
+
         endpoints = new Endpoint[8];
         endpoints[0] = new Endpoint(0, START);
         endpoints[1] = new Endpoint(1, START);
@@ -28,7 +30,6 @@ class RBTreeTest {
 
     @Test
     void addNodeWorks() {
-        tree = new RBTree();
         for(int i = 0; i < 8; i++) {
             Node n = new Node(endpoints[i]);
             tree.addNode(n);
@@ -38,7 +39,6 @@ class RBTreeTest {
 
     @Test
     void deleteNodeWorks() {
-        tree = new RBTree();
         Node n = new Node();
         for(int i = 0; i < 8; i++) {
             n = new Node(endpoints[i]);
@@ -61,6 +61,27 @@ class RBTreeTest {
     }
 
     @Test
+    void findHeightAfterSingleAdd() {
+        Node node = new Node(endpoints[0]);
+        tree.addNode(node);
+        assertEquals(0, tree.findHeight(), "Tree height is not correct");
+    }
+
+    @Test
+    void findHeightWithMultipleAdd() {
+        addMultipleNodes(tree);
+        assertEquals(3 ,tree.findHeight(), "Tree height is not correct");
+    }
+
+    @Test
     void addNode() {
+    }
+
+    private void addMultipleNodes(RBTree T) {
+        Node n;
+        for(int i = 0; i < 8; i++) {
+            n = new Node(endpoints[i]);
+            T.addNode(n);
+        }
     }
 }

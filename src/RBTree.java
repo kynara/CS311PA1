@@ -79,6 +79,18 @@ public class RBTree {
         return height;
     }
 
+    public int findHeight() {
+        return findHeightRec(root);
+    }
+
+    private int findHeightRec(Node node) {
+        if(node == nil || node == null) {
+            return -1;
+        }
+
+        return Math.max(findHeightRec(node.left), findHeightRec(node.right)) + 1;
+    }
+
     /**
      * Iterates through the tree breadth wise
      * @return RBT in string form
