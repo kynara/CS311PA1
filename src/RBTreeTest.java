@@ -87,7 +87,7 @@ class RBTreeTest {
         Node n = new Node();
         tree.deleteNode(n);
 
-        assertEquals("null", tree.breadthFirstTraversal(), "RBT does not match expected");
+        assertEquals("", tree.breadthFirstTraversal(), "RBT does not match expected");
     }
 
     @Test

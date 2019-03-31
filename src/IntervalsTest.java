@@ -8,6 +8,7 @@ class IntervalsTest {
 
     @BeforeEach
     void setUp() {
+
     }
 
     @AfterEach
