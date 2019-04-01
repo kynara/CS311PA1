@@ -108,14 +108,6 @@ class NodeTest {
     }
 
     @Test
-    void getEndpoint() {
-    }
-
-    @Test
-    void getEmax() {
-    }
-
-    @Test
     void getRootColorAfterMultipleAdd() {
         addMultipleNodes(T);
         assertEquals(BLACK, T.getRoot().getColor(), "Root color is not correct");

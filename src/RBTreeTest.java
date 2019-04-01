@@ -102,12 +102,12 @@ class RBTreeTest {
         assertEquals(8, tree.getSize(), "RBT does not match expected");
     }
 
-    /**@Test
+    @Test
     void getHeight() {
         addMultipleNodes(tree);
-        assertEquals(3, tree.findHeight(), "RBT does not match expected");
+        assertEquals(3, tree.getHeight(), "RBT does not match expected");
     }
-    */
+
 
     @Test
     void findHeightAfterSingleAdd() {
@@ -120,11 +120,6 @@ class RBTreeTest {
     void findHeightWithMultipleAdd() {
         addMultipleNodes(tree);
         assertEquals(3 ,tree.getHeight(), "Tree height is not correct");
-    }
-
-    @Test
-    void addNode() {
-
     }
 
     private void addMultipleNodes(RBTree T) {
