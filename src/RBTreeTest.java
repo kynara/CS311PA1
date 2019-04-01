@@ -93,7 +93,7 @@ class RBTreeTest {
     @Test
     void getNILNode() {
         addMultipleNodes(tree);
-        assertEquals("11", tree.getNILNode(), "RBT does not match expected");
+        assertEquals(0, tree.getNILNode().p, "RBT does not match expected");
     }
 
     @Test
@@ -113,13 +113,13 @@ class RBTreeTest {
     void findHeightAfterSingleAdd() {
         Node node = new Node(endpoints[0]);
         tree.addNode(node);
-        assertEquals(0, tree.findHeight(), "Tree height is not correct");
+        assertEquals(0, tree.getHeight(), "Tree height is not correct");
     }
 
     @Test
     void findHeightWithMultipleAdd() {
         addMultipleNodes(tree);
-        assertEquals(3 ,tree.findHeight(), "Tree height is not correct");
+        assertEquals(3 ,tree.getHeight(), "Tree height is not correct");
     }
 
     @Test

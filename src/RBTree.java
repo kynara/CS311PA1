@@ -76,10 +76,6 @@ public class RBTree {
      * @return the height of the RBTree
      */
     public int getHeight() {
-        return height;
-    }
-
-    public int findHeight() {
         return findHeightRec(root);
     }
 
