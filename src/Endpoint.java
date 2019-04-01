@@ -41,7 +41,7 @@ public class Endpoint {
      * Get the Endpoint value
      * Ex: if this Endpoint represents the left Endpoint of the
      * interval [1,3], this would return 1.
-     * @return value of this Endpoint
+     * @return int
      */
     public int getValue() {
         return this.value;
@@ -51,7 +51,7 @@ public class Endpoint {
      * Get the type of this Endpoint
      * Either: 0 for START Endpoint
      *
-     * @return type of this Endpoint
+     * @return int
      */
     public int getType() { return this.type; }
 }
