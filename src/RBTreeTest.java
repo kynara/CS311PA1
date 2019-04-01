@@ -31,7 +31,7 @@ class RBTreeTest {
     @Test
     void addNodeWorks() {
         addMultipleNodes(tree);
-        assertEquals("0 1 3 4 6 7 9 11 ", tree.breadthFirstTraversal(), "RBT does not add right 1");
+        assertEquals("0 1 3 4 6 7 9 11 ", tree.depthFirstTraversal(), "RBT does not add right 1");
     }
 
     @Test //adds the nodes in a random order still organizes it into the same BST
@@ -54,7 +54,7 @@ class RBTreeTest {
         n = new Node(endpoints[5]);
         tree.addNode(n);
 
-        assertEquals("0 1 3 4 6 7 9 11 ", tree.breadthFirstTraversal(), "RBT does not add right");
+        assertEquals("0 1 3 4 6 7 9 11 ", tree.depthFirstTraversal(), "RBT does not add right");
     }
 
     @Test //deletes the last node added
@@ -65,7 +65,7 @@ class RBTreeTest {
             tree.addNode(n);
         }
         tree.deleteNode(n);
-        assertEquals("0 1 3 4 6 7 9 ", tree.breadthFirstTraversal(), "RBT does not delete right");
+        assertEquals("0 1 3 4 6 7 9 ", tree.depthFirstTraversal(), "RBT does not delete right");
     }
 
     @Test //deletes node at the first location
@@ -78,7 +78,7 @@ class RBTreeTest {
         }
 
         tree.deleteNode(n[0]);
-        assertEquals("1 3 4 6 7 9 11 ", tree.breadthFirstTraversal(), "RBT does not delete right");
+        assertEquals("1 3 4 6 7 9 11 ", tree.depthFirstTraversal(), "RBT does not delete right");
     }
 
     @Test
@@ -87,7 +87,7 @@ class RBTreeTest {
         Node n = new Node();
         tree.deleteNode(n);
 
-        assertEquals("", tree.breadthFirstTraversal(), "RBT does not match expected");
+        assertEquals("", tree.depthFirstTraversal(), "RBT does not match expected");
     }
 
     @Test

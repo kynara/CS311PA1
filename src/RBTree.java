@@ -92,13 +92,13 @@ public class RBTree {
     }
 
     /**
-     * Iterates through the tree breadth wise
+     * Iterates through the tree depth wise
      * @return RBT in string form
      */
-    public String breadthFirstTraversal()
+    public String depthFirstTraversal()
     {
         rbtString = "";
-        breadthFirstTraversalRec(root);
+        depthFirstTraversalRec(root);
         System.out.println();
         return rbtString;
     }
@@ -107,12 +107,12 @@ public class RBTree {
      * Recursively iterates through a subtree
      * @param x Subtree to which the method iterates
      */
-    public void breadthFirstTraversalRec(Node x) {
+    public void depthFirstTraversalRec(Node x) {
         if(x != this.nil) {
-            breadthFirstTraversalRec(x.left);
+            depthFirstTraversalRec(x.left);
             System.out.print(x.getKey() + "\t");
             rbtString += x.getKey() + " ";
-            breadthFirstTraversalRec(x.right);
+            depthFirstTraversalRec(x.right);
         }
     }
 
