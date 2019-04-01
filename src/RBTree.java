@@ -91,6 +91,26 @@ public class RBTree {
         return Math.max(findHeightRec(node.left), findHeightRec(node.right)) + 1;
     }
 
+    public void findMaxVal(Node n) {
+        if(n == this.nil) {
+            n.maxval = 0;
+            return;
+        }
+        findMaxVal(n.left);
+        findMaxVal(n.right);
+
+        n.maxval = Math.max(n.left.maxval, n.left.val + n.p);
+        n.maxval = Math.max(n.maxval, n.left.val + n.p + n.right.maxval);
+
+        if(n.maxval == n.left.val + n.p){
+            n.emax = n.getEndpoint();
+        } else if(n.maxval == n.left.val + n.p + n.right.maxval){
+            n.emax = n.right.emax;
+        }  else if(n.maxval == n.left.maxval) {
+            n.emax = n.left.emax;
+        }
+    }
+
     /**
      * Iterates through the tree depth wise
      * @return RBT in string form
@@ -232,7 +252,7 @@ public class RBTree {
         this.root.color = BLACK;
 
         z.findVal(this);
-        root.findMaxVal(this);
+        findMaxVal(this.root);
     }
 
      public void rbtTransplant(Node u, Node v){
@@ -361,6 +381,6 @@ public class RBTree {
         }
 
         z.findVal(this);
-        root.findMaxVal(this);
+        findMaxVal(this.root);
     }
 }

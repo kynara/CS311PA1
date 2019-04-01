@@ -44,7 +44,7 @@ public class Node {
      * Maximum 'val' in the Node's subtree,
      * including itself
      */
-    private int maxval;
+    public int maxval;
 
     /**
      * The Endpoint associated with the given
@@ -178,49 +178,6 @@ public class Node {
      */
     public int getMaxVal() {
         return maxval;
-    }
-
-    /**
-     * Compute and return the maxval for each Node in the subtree
-     * @return maxval
-     */
-    public int findMaxVal(RBTree T) {
-        if(this == T.getNILNode())
-            return 0;
-
-        int leftMaxVal = this.left.findMaxVal(T);
-        int rightMaxVal = this.right.findMaxVal(T);
-
-        maxval = Math.max(leftMaxVal, this.left.val + this.p);
-        maxval = Math.max(maxval, this.left.val + this.p + rightMaxVal);
-
-        if(maxval > leftMaxVal){
-            this.emax = this.left.ep;
-        }
-        else if(maxval > rightMaxVal) {
-            this.emax = this.right.ep;
-        }
-        else {
-            this.emax = this.ep;
-        }
-
-        setMaxValOnSubtree(T, this, maxval);
-
-        return maxval;
-    }
-
-    /**
-     * After computing the maxval, assign it to every node
-     * @param T RBTree the Node is in
-     * @param node Node to set maxval on
-     * @param maxval the maxval we're setting on the Node
-     */
-    private void setMaxValOnSubtree(RBTree T, Node node, int maxval) {
-        if(node != T.getNILNode()) {
-            setMaxValOnSubtree(T, node.getLeft(), maxval);
-            setMaxValOnSubtree(T, node.getRight(), maxval);
-            node.maxval = maxval;
-        }
     }
 
     /**

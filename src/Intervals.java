@@ -44,6 +44,7 @@ public class Intervals {
 
         T.addNode(newInterval.getLeftEp());
         T.addNode(newInterval.getRightEp());
+
         intervals.put(newInterval.getIntervalID(), newInterval);
     }
 
@@ -96,6 +97,7 @@ public class Intervals {
             //System.out.println("Inserting: "+ Arrays.toString(points[i]));
             intv.intervalInsert(points[i][0], points[i][1]);
         }
-//        System.out.println("POM is: "+ intv.findPOM()); //Should return 3.
+        intv.T.findMaxVal(intv.T.getRoot());
+        System.out.println("POM is: "+ intv.findPOM()); //Should return 3.
     }
 }
