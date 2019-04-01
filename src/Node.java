@@ -109,7 +109,7 @@ public class Node {
 
     /**
      * Get the left child of the Node
-     * @return left child
+     * @return Node
      */
     public Node getLeft() {
         return this.left;
@@ -117,7 +117,7 @@ public class Node {
 
     /**
      * Get the right child of the Node
-     * @return right child
+     * @return Node
      */
     public Node getRight() {
         return this.right;
@@ -125,7 +125,7 @@ public class Node {
 
     /**
      * Get the key of the Node
-     * @return key
+     * @return int
      */
     public int getKey() {
         return this.key;
@@ -133,7 +133,7 @@ public class Node {
 
     /**
      * Get the value of function p based on the endpoint
-     * @return the value of p
+     * @return int
      */
     public int getP() {
         return this.p;
@@ -141,7 +141,7 @@ public class Node {
 
     /**
      * Get the val of the Node
-     * @return val
+     * @return int
      */
     public int getVal() {
         return this.val;
@@ -149,7 +149,7 @@ public class Node {
 
     /**
      * Computes val by calling the recursive function
-     * @param T RBTree whose Nodes we're computing val for
+     * @param T RBTree
      */
     public void findVal(RBTree T) {
         findValRec(T, T.getRoot());
@@ -157,8 +157,8 @@ public class Node {
 
     /**
      * Recursive function to find the val of each node
-     * @param T RBTree instance
-     * @param node Node to find val of
+     * @param T RBTree
+     * @param node Node
      */
     private void findValRec(RBTree T, Node node) {
         if(node != T.getNILNode()) {
@@ -174,7 +174,7 @@ public class Node {
 
     /**
      * Get the maxval of the Node
-     * @return maxval
+     * @return int
      */
     public int getMaxVal() {
         return maxval;
@@ -182,7 +182,7 @@ public class Node {
 
     /**
      * Get the Endpoint that the Node represents
-     * @return this Node's Endpoint
+     * @return Endpoint
      */
     public Endpoint getEndpoint() {
         return this.ep;
@@ -192,7 +192,7 @@ public class Node {
      * Get emax value. Calling this on the root Node will give
      * the Endpoint object whose getValue() provides a point of
      * maximum overlap.
-     * @return Endpoint representing emax
+     * @return Endpoint
      */
     public Endpoint getEmax() {
         return this.emax;
@@ -200,7 +200,7 @@ public class Node {
 
     /**
      * Returns 0 if red, 1 if black
-     * @return int representing a color
+     * @return int
      */
     public int getColor() {
         return this.color;
