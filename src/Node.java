@@ -194,9 +194,13 @@ public class Node {
         maxval = Math.max(leftMaxVal, this.left.val + this.p);
         maxval = Math.max(maxval, this.left.val + this.p + rightMaxVal);
 
-        if(maxval > leftMaxVal || maxval > rightMaxVal) {
+        if(maxval > leftMaxVal){
+            this.emax = this.left.ep;
+        }
+        else if(maxval > rightMaxVal) {
             this.emax = this.right.ep;
-        } else {
+        }
+        else {
             this.emax = this.ep;
         }
 
