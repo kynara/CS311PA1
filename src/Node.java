@@ -27,7 +27,7 @@ public class Node {
      * Unique integer used as the Node's key.
      * Used to sort the red black tree.
      */
-    private int key;
+    public int key;
 
     /**
      *

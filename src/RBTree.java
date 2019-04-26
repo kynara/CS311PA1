@@ -11,7 +11,7 @@ public class RBTree {
     /**
      * Root Node of the RBTree
      */
-    private Node root;
+    public Node root;
 
     /**
      * Number of internal nodes in the RBTree
@@ -26,7 +26,7 @@ public class RBTree {
     /**
      * T.nil of the RBTree. The RBTree must have exactly one instance of nil
      */
-    private Node nil;
+    public Node nil;
 
     private static final int RED = 0;
     private static final int BLACK = 1;
@@ -81,7 +81,7 @@ public class RBTree {
 
     private int findHeightRec(Node node) {
         if(node == nil || node == null) {
-            return -1;
+            return 0;
         }
 
         return Math.max(findHeightRec(node.left), findHeightRec(node.right)) + 1;
